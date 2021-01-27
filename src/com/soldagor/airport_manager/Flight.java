@@ -62,6 +62,19 @@ public class Flight {
         System.out.println("user=" + users.size() + " | count=" + countUsers);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Flight)) return false;
+        Flight flight = (Flight) o;
+        return Objects.equals(nameFlight, flight.nameFlight);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameFlight);
+    }
+
     public void updateStatus() {
         if (statusFlight.equals(StatusFlightEnum.SCHEDULED)) {
 
@@ -78,6 +91,8 @@ public class Flight {
                 statusFlight = StatusFlightEnum.FINISHED;
             }
         }
+
+
 
     }
 }

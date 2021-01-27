@@ -8,26 +8,32 @@ public class AirportManager {
 
     public static void main(String[] args) {
 
-        //Collection<User> users = new ArrayList<>();
         Collection<Flight> flights = new ArrayList<>();
 
         var flight1 = new Flight("FL-001",
                 "Maldive",
-                LocalDateTime.of(2021, 1,26,14, 0, 0),
+                LocalDateTime.of(2021, 1, 26, 14, 0, 0),
                 8,
                 2,
                 StatusFlightEnum.SCHEDULED);
 
         var flight2 = new Flight("FL-002",
                 "London",
-                LocalDateTime.of(2020, 1,28,7,0,0),
+                LocalDateTime.of(2020, 1, 28, 7, 0, 0),
                 3,
                 100,
                 StatusFlightEnum.SCHEDULED);
 
         var flight3 = new Flight("FL-003",
                 "Munich",
-                LocalDateTime.of(2020, 1,26,9,0,0),
+                LocalDateTime.of(2020, 1, 26, 9, 0, 0),
+                2,
+                10,
+                StatusFlightEnum.SCHEDULED);
+
+        var flight4 = new Flight("FL-003",
+                "Munich",
+                LocalDateTime.of(2020, 1, 26, 9, 0, 0),
                 2,
                 10,
                 StatusFlightEnum.SCHEDULED);
@@ -35,6 +41,14 @@ public class AirportManager {
         flights.add(flight1);
         flights.add(flight2);
         flights.add(flight3);
+
+        flights
+                .forEach(flight -> System.out.println(flight.equals(flight4)));
+
+        System.out.println(flight1.hashCode());
+        System.out.println(flight2.hashCode());
+
+        flights.add(flight4);
 
         flights.forEach(System.out::println);
 
